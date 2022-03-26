@@ -1,14 +1,14 @@
-# kb-display (TODO: Find a name)
+# i3kbdisp
 
 ## TODO
-[x] When click on Shift display Shift binds
-[x] Support other modifiers
-[ ] Add description to keys
-[ ] Support for other file formats (i.e. not only i3 config file)
-[ ] Save svg
-[ ] Pick colors
-[ ] Support for other keyboard layout
-[ ] Better keyboard svg
+- [x] When click on Shift display Shift binds
+- [x] Support other modifiers
+- [ ] Add description to keys
+- [ ] Support for other file formats (i.e. not only i3 config file)
+- [ ] Save svg
+- [ ] Pick colors
+- [ ] Support for other keyboard layout
+- [ ] Better keyboard svg
 
 ## Glossary
 **Key binding**: The assignment of a key or combination of keys on keyboard with

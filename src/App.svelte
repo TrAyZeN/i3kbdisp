@@ -31,7 +31,7 @@
 </script>
 
 <main>
-    <h1>kb-display</h1>
+    <h1>i3kbdisp</h1>
 
     <Keyboard {keymap} on:message={handleMessage} />
     <p>Modifier keys: Mod {modifierPressed}</p>
