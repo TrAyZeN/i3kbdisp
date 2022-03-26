@@ -31,10 +31,15 @@
 </script>
 
 <main>
-    <h1>i3kbdisp</h1>
+    <div class="header">
+        <h1>i3kbdisp</h1>
+        <p>Visualize your i3 key bindings</p>
+    </div>
 
-    <Keyboard {keymap} on:message={handleMessage} />
-    <p>Modifier keys: Mod {modifierPressed}</p>
+    <div>
+        <Keyboard {keymap} on:message={handleMessage} />
+        <p>Modifier keys: Mod {modifierPressed}</p>
+    </div>
 
     <div>
         <p>Import your i3 config file:<p>
@@ -57,5 +62,9 @@
 
     input {
         max-width: 400px;
+    }
+
+    .header {
+        margin-bottom: 2em;
     }
 </style>

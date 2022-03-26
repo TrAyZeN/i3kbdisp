@@ -1,4 +1,5 @@
 # i3kbdisp
+> Visualize your i3 key bindings
 
 ## TODO
 - [x] When click on Shift display Shift binds
