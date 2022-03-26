@@ -31,10 +31,15 @@
 </script>
 
 <main>
+    <h1>kb-display</h1>
+
     <Keyboard {keymap} on:message={handleMessage} />
     <p>Modifier keys: Mod {modifierPressed}</p>
 
-    <input type="file" bind:files on:change={parseFile}>
+    <div>
+        <p>Import your i3 config file:<p>
+        <input type="file" bind:files on:change={parseFile}>
+    </div>
 </main>
 
 <style>
