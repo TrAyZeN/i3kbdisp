@@ -13,13 +13,13 @@
 
         const tempKeymap = [];
         for (let i = 0; i < lines.length;i++) {
-            const match = lines[i].match(/^bindsym\s([^\s]+)\s([^\n]+)$/);
+            const match = lines[i].match(/^bindsym\s+([^\s]+(\s*\+\s*[^\s]+)*)\s+([^\n]+)$/);
 
             if (!match) {
                 continue;
             }
 
-            tempKeymap.push([match[1], match[2]]);
+            tempKeymap.push([match[1].split('+').map(b => b.trim()), match[3]]);
         }
 
         keymap = [...tempKeymap];

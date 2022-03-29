@@ -80,6 +80,10 @@
     let modifierPressed = [];
 
     afterUpdate(() => {
+        if (keyboard === null || keyboard.getSVGDocument() === null) {
+            return;
+        }
+
         highlight(keymap);
     });
 
@@ -104,8 +108,7 @@
         resetKeyColors();
 
         for (let i = 0; i < keymap.length; i++) {
-            const bindingComponents = keymap[i][0].split('+');
-            const lastComponent = bindingComponents[bindingComponents.length - 1];
+            const bindingComponents = keymap[i][0];
 
             if (bindingComponents.length == 1 || bindingComponents[0] != '$mod') {
                 console.log('unimplemented:', bindingComponents[0]);
