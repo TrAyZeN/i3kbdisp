@@ -1,31 +1,20 @@
 <script>
-    import { onMount } from 'svelte';
     import Keyboard from './Keyboard.svelte';
+    import parseFile from './parser';
 
     let files;
 
     let modifierPressed = '';
     let keymap = [];
 
-    async function parseFile(event) {
+    async function handleFile(_event) {
         const content = await files[0].text();
-        const lines = content.split('\n');
 
-        const tempKeymap = [];
-        for (let i = 0; i < lines.length;i++) {
-            const match = lines[i].match(/^bindsym\s+([^\s]+(\s*\+\s*[^\s]+)*)\s+([^\n]+)$/);
-
-            if (!match) {
-                continue;
-            }
-
-            tempKeymap.push([match[1].split('+').map(b => b.trim()), match[3]]);
-        }
-
+        const tempKeymap = parseFile(content);
         keymap = [...tempKeymap];
     }
 
-    function handleMessage(event) {
+    function handleKeyboardMessage(event) {
         modifierPressed = event.detail.modifierPressed.join(' ');
     }
 </script>
@@ -37,13 +26,13 @@
     </div>
 
     <div>
-        <Keyboard {keymap} on:message={handleMessage} />
+        <Keyboard {keymap} on:message={handleKeyboardMessage} />
         <p>Modifier keys: Mod {modifierPressed}</p>
     </div>
 
     <div>
         <p>Import your i3 config file:<p>
-        <input type="file" bind:files on:change={parseFile}>
+        <input type="file" bind:files on:change={handleFile}>
     </div>
 </main>
 
