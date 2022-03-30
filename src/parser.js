@@ -13,7 +13,10 @@ function parseI3Config(content) {
             continue;
         }
 
-        keymap.push([match[2].split('+').map(b => b.trim()), match[4]]);
+        keymap.push([
+            match[2].toLowerCase().split('+').map(b => b.trim()),
+            match[4]
+        ]);
     }
 
     return keymap;

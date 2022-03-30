@@ -22,9 +22,9 @@
         '0': 'rect2242',
         'minus': 'rect2244',
         'equal': 'rect2246',
-        'BackSpace': 'rect2248',
+        'backspace': 'rect2248', // BackSpace
 
-        'Tab': 'rect2250',
+        'tab': 'rect2250', // Tab
         'q': 'rect2252',
         'w': 'rect2254',
         'e': 'rect2256',
@@ -51,9 +51,9 @@
         'l': 'rect2314',
         'semicolon': 'rect2316',
         '\'': 'rect2318',
-        'Return': 'rect2320',
+        'return': 'rect2320', // Return
 
-        'Shift': 'rect2322',
+        'shift': 'rect2322', // Shift
         'z': 'rect2324',
         'x': 'rect2326',
         'c': 'rect2330',
@@ -66,9 +66,9 @@
         'slash': 'rect2346',
         'RightShift': 'rect2348',
 
-        'Ctrl': 'rect2350',
-        'Super': 'rect2364',
-        'Alt': 'rect2354',
+        'ctrl': 'rect2350', // Ctrl
+        'super': 'rect2364', // super
+        'alt': 'rect2354', // alt
         'space': 'rect2362',
         'RightAlt': 'rect2360',
         'RightSuper': 'rect2366',
@@ -90,7 +90,7 @@
     function onLoad() {
         highlight(keymap);
 
-        const modifierKeys = ['Shift', 'Ctrl', 'Alt'];
+        const modifierKeys = ['shift', 'ctrl', 'alt'];
         for (let i = 0; i < modifierKeys.length; i++) {
             keyboard.getSVGDocument().getElementById(layout[modifierKeys[i]])
                 .addEventListener('click', () => {
@@ -137,7 +137,7 @@
             setKeyColor(bindingComponents[j], activeColor);
         }
 
-        setKeyColor('Super', modifierColor);
+        setKeyColor('super', modifierColor);
         for (let i = 0; i < modifierPressed.length; i++) {
             setKeyColor(modifierPressed[i], modifierColor);
         }
@@ -148,13 +148,13 @@
             setKeyColor(k, '#ffffff');
         }
 
-        const greyKeys = ['Tab', 'CapsLock', 'Shift', 'Ctrl', 'Alt',
-            'BackSpace', 'Return', 'RightShift', 'RightCtrl', 'RightAlt'];
+        const greyKeys = ['tab', 'CapsLock', 'shift', 'ctrl', 'alt',
+            'backspace', 'return', 'RightShift', 'RightCtrl', 'RightAlt'];
         for (let i = 0; i < greyKeys.length; i++) {
             setKeyColor(greyKeys[i], '#dfdfdf');
         }
 
-        const lightGreyKeys = ['Super', 'RightSuper', 'Menu'];
+        const lightGreyKeys = ['super', 'RightSuper', 'Menu'];
         for (let i = 0; i < lightGreyKeys.length; i++) {
             setKeyColor(lightGreyKeys[i], '#efefef');
         }
