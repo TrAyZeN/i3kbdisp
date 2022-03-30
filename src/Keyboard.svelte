@@ -129,6 +129,10 @@
             if (j < bindingComponents.length - 1) {
                 continue;
             }
+            if (!layout[bindingComponents[j]]) {
+                console.log('unimplemented:', bindingComponents[j]);
+                continue;
+            }
 
             setKeyColor(bindingComponents[j], activeColor);
         }
