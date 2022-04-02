@@ -7,6 +7,7 @@
 
     const dispatch = createEventDispatcher();
 
+    // Maps key symbol to key id (in SVG)
     // https://github.com/i3/i3/blob/9db03797da3cea5dc6898adc79a68ba4523a409c/i3-input/keysym.map
     const layout = {
         '`': 'rect2186',
@@ -78,6 +79,7 @@
 
     let keyboard;
     let modifierPressed = [];
+    let commands = {}; // Maps key id (in SVG) to command
 
     afterUpdate(() => {
         if (keyboard === null || keyboard.getSVGDocument() === null) {
@@ -90,6 +92,21 @@
     function onLoad() {
         highlight(keymap);
 
+        for (const k in layout) {
+            keyboard.getSVGDocument().getElementById(layout[k])
+                .addEventListener('mouseover', (event) => {
+                    let command = commands[event.srcElement.id];
+                    if (!command) {
+                        return;
+                    }
+
+                    dispatch('message', {
+                        type: 'BINDING_COMMAND',
+                        bindingCommand: command,
+                    });
+                });
+        }
+
         const modifierKeys = ['shift', 'ctrl', 'alt'];
         for (let i = 0; i < modifierKeys.length; i++) {
             keyboard.getSVGDocument().getElementById(layout[modifierKeys[i]])
@@ -98,13 +115,16 @@
                     highlight(keymap);
 
                     dispatch('message', {
+                        type: 'MODIFIER_PRESSED',
                         modifierPressed,
                     });
                 });
         }
     }
 
+    // TODO: Rename this function since it also stores commands
     function highlight(keymap) {
+        commands = {};
         resetKeyColors();
 
         for (let i = 0; i < keymap.length; i++) {
@@ -134,6 +154,7 @@
                 continue;
             }
 
+            commands[layout[bindingComponents[j]]] = keymap[i][1];
             setKeyColor(bindingComponents[j], activeColor);
         }
 

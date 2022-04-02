@@ -5,6 +5,7 @@
     let files;
 
     let modifierPressed = '';
+    let bindingCommand = '';
     let keymap = [];
 
     async function handleFile(_event) {
@@ -14,8 +15,22 @@
         keymap = [...tempKeymap];
     }
 
+    function capitalize(str) {
+        if (!str) {
+            return str;
+        }
+
+        return str[0].toUpperCase() + str.slice(1);
+    }
+
     function handleKeyboardMessage(event) {
-        modifierPressed = event.detail.modifierPressed.join(' ');
+        if (event.detail.type === 'MODIFIER_PRESSED') {
+            modifierPressed = event.detail.modifierPressed.map(m => capitalize(m)).join(' ');
+        } else if (event.detail.type === 'BINDING_COMMAND') {
+            bindingCommand = event.detail.bindingCommand;
+        } else {
+            console.log('Invalid event keyboard:', event.detail);
+        }
     }
 </script>
 
@@ -28,6 +43,7 @@
     <div>
         <Keyboard {keymap} on:message={handleKeyboardMessage} />
         <p>Modifier keys: Mod {modifierPressed}</p>
+        <p>Command: {bindingCommand}</p>
     </div>
 
     <div>
