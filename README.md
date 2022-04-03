@@ -1,5 +1,9 @@
 # i3kbdisp
 > Visualize your i3 key bindings
+<div align="center">
+    <img src="assets/preview.png"/>
+</div>
+
 
 ## TODO
 - [x] When click on Shift display Shift binds
