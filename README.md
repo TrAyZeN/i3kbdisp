@@ -4,16 +4,13 @@
     <img src="assets/preview.png"/>
 </div>
 
+The app is available at https://i3kbdisp.trayzen.xyz.
 
-## TODO
-- [x] When click on Shift display Shift binds
-- [x] Support other modifiers
-- [x] Add description to keys
-- [ ] Support for other file formats (i.e. not only i3 config file)
-- [ ] Save svg
-- [ ] Pick colors
-- [ ] Support for other keyboard layout
-- [ ] Better keyboard svg
+## Building
+```
+yarn install
+yarn start
+```
 
 ## Glossary
 **Key binding**: The assignment of a key or combination of keys on keyboard with
@@ -29,3 +26,11 @@ keyboard.
 **Modifier key**: A modifier key is a special key (or combination) on a computer
 keyboard that temporarily modifies the normal action of antother key when
 pressed together.
+
+## Contributing
+Contributions are welcome! Just [submit a pull request](https://github.com/TrAyZeN/i3kbdisp/compare).
+
+If you want to report a bug or request a feature just [open an issue](https://github.com/TrAyZeN/i3kbdisp/issues/new).
+
+## License
+This project is licensed under [MIT License](https://github.com/TrAyZeN/i3kbdisp/blob/master/LICENSE).
