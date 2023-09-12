@@ -2,6 +2,7 @@
   "name": "i3kbdisp",
   "version": "1.0.0",
   "private": true,
+  "type": "module",
   "scripts": {
     "build": "rollup -c",
     "dev": "rollup -c -w",
