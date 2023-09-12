@@ -202,5 +202,12 @@
 </script>
 
 <main>
-    <object type="image/svg+xml" data="assets/images/keyboard.svg" bind:this={keyboard} on:load={onLoad} />
+    <object type="image/svg+xml" data="assets/images/keyboard.svg" bind:this={keyboard} on:load={onLoad} class="keyboard" />
 </main>
+
+<style>
+    .keyboard {
+        /* Disable text selection on SVG */
+        pointer-events: none;
+    }
+</style>
