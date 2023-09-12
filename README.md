@@ -22,7 +22,7 @@ The app is available at https://i3kbdisp.trayzen.xyz.
 ## Building
 ```sh
 pnpm install
-pnpm run start
+pnpm run build
 ```
 
 ## Glossary
