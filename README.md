@@ -1,19 +1,28 @@
-# i3kbdisp
+<h1 align="center">
+    i3kbdisp
+</h1>
+
 > Visualize your i3 key bindings
 <div align="center">
     <img src="assets/preview.png"/>
 </div>
+
 Have you ever wanted to add a new key binding but not knowing which key to choose
 ? Have you ever wanted to remap keys ? Or have you ever ever wanted to optimize
 your workflow and key bindings ? Well this app is just for you! It allows you to
 easily visualize your key bindings.
 
+
 The app is available at https://i3kbdisp.trayzen.xyz.
 
+## Requirements
+- [Node.js](https://nodejs.org/)
+- [pnpm](https://pnpm.io/)
+
 ## Building
-```
-yarn install
-yarn start
+```sh
+pnpm install
+pnpm run start
 ```
 
 ## Glossary
