@@ -120,6 +120,13 @@
                     });
                 });
         }
+
+        // Disable text selection on SVG
+        // I don't know why but it doesn't work in svelte style
+        for (const element of
+            keyboard.getSVGDocument().getElementsByTagName('text')) {
+            element.style.userSelect = 'none';
+        }
     }
 
     // TODO: Rename this function since it also stores commands
@@ -206,8 +213,4 @@
 </main>
 
 <style>
-    .keyboard {
-        /* Disable text selection on SVG */
-        pointer-events: none;
-    }
 </style>
