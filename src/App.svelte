@@ -43,7 +43,8 @@
     <div>
         <Keyboard {keymap} on:message={handleKeyboardMessage} />
         <p>Modifier keys: Mod {modifierPressed}</p>
-        <p>Command: {bindingCommand}</p>
+        <p>Command:</p>
+        <p class="command">{bindingCommand}</p>
     </div>
 
     <div>
@@ -71,5 +72,10 @@
 
     .header {
         margin-bottom: 2em;
+    }
+
+    .command {
+        font-family: monospace;
+        font-size: 16px;
     }
 </style>
