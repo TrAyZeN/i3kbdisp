@@ -209,7 +209,14 @@
 </script>
 
 <main>
-    <object type="image/svg+xml" data="assets/images/keyboard.svg" bind:this={keyboard} on:load={onLoad} class="keyboard" />
+    <object
+        type="image/svg+xml"
+        data="assets/images/keyboard.svg"
+        bind:this={keyboard}
+        on:load={onLoad}
+        class="keyboard"
+        aria-label="keyboard"
+    />
 </main>
 
 <style>
